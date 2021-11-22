@@ -1,20 +1,16 @@
 import java.util.List;
 
-public class Distortion implements Reverse{
+public class Distortion implements Reversable {
 
-    private static String distortionBit;
+    private String distortionBit;
 
-    public static void setDistortionBit(String distortionBit) {
-        Distortion.distortionBit = distortionBit;
+    public Distortion(String distortionBit) {
+        this.distortionBit = distortionBit;
     }
-
-
-    public static List<String> distortion(List<String> list){
+        public List<String> makeDistortion(List<String> list) {
         for (int i = 0; i < distortionBit.length(); i++) {
-            list.set(i, Reverse.reverse(list.get(i), Integer.parseInt(String.valueOf(distortionBit.charAt(i)))-1));
+            list.set(i, reverse(list.get(i), Integer.parseInt(String.valueOf(distortionBit.charAt(i))) - 1));
         }
         return list;
     }
-
-
 }
